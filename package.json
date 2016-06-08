@@ -1,0 +1,25 @@
+{
+  "name": "ilvon",
+  "author": "Y",
+  "version": "1.0.0",
+  "description": "ilvon",
+  "keywords": ["ilvon"],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "start": "gulp server",
+    "build": "gulp"
+  },
+  "homepage": "",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.1.2",
+    "i18n-helper": "~1.1.1",
+    "react-mixin": "~1.7.0"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.0"
+  }
+}

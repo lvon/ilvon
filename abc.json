@@ -1,0 +1,36 @@
+{
+    "name": "monthly-statement",
+    "type": "alinw",
+    "builder": "alinw",
+    "options": {
+        "type": "uxcore",
+        "pages": true,
+        "libraries": {
+            "Uxcore": {
+                "output": "uxcore.js",
+                "mappings": {
+                    "Button": "uxcore-button@~0.3.3",
+                    "CheckboxGroup": "uxcore-checkbox-group@~1.0.6",
+                    "Dialog": "uxcore-dialog@~0.2.6",
+                    "Form": "uxcore-form@~1.2.4",
+                    "Message": "uxcore-message@~0.1.1",
+                    "Pagination": "uxcore-pagination@~0.1.8",
+                    "Table": "uxcore-table@~1.3.11",
+                    "Validator": "uxcore-validator@~0.1.1",
+                    "Popover": "uxcore-popover@^0.2.1",
+                    "RadioGroup":  "uxcore-radiogroup@~1.1.1",
+                    "Uploader":"uxcore-uploader@~1.1.7",
+                    "Select2":"uxcore-select2@~0.1.10",
+                    "Tooltip":"uxcore-tooltip@~0.2.3",
+                    "Calendar": "uxcore-calendar@~0.2.1",
+                    "Dropdown": "uxcore-dropdown@~0.2.0",
+                    "Menu":"uxcore-menu@~1.0.1",
+                    "Tabs":"uxcore-tabs@~0.2.3",
+                    "Formatter":"uxcore-formatter@~0.1.2",
+                    "Alert":"uxcore-alert@~0.1.3",
+                    "Totop":"uxcore-totop@~0.1.2"
+                }
+            }
+        }
+    }
+}

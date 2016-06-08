@@ -1,0 +1,17 @@
+{
+  "generator-alinw": {
+    "ctx": {
+      "type": "uxcore",
+      "name": "empty",
+      "description": "empty",
+      "family": "platform",
+      "author": "Y",
+      "version": "0.1.0",
+      "homepage": "",
+      "repository": "",
+      "keywords": "empty",
+      "library": false,
+      "skipInstall": false
+    }
+  }
+}
