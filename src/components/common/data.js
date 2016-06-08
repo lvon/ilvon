@@ -27,7 +27,17 @@ global.zhanqiDefault = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCA
 
 
 
-
+global.question={
+	q1:'您的尊姓大名？',
+	q2:'您的出生地？',
+	q3:'对您最重要的人的名字？',
+	q4:'您的母校？',
+	q5:'您的出生地？',
+	q6:'您最喜欢的食物？',
+	q7:'您LOL的段位？',
+	q8:'您的手机号码？',
+	q9:'其他',
+}
 
 
 

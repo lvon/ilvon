@@ -21,6 +21,7 @@ let {
 } = Form;
 
 let util = require('../../components/common/util');
+let data = require('../../components/common/data');
 
 class Login extends React.Component {
 
@@ -33,15 +34,26 @@ class Login extends React.Component {
         };
     }
 
-    handleSubmit() {
+    handleLogin() {
         console.log(this.refs.form.getValues());
     }
     handleRegist(){
         let t = this;
-        t.handleDialogVisible(false);
+        let data = t.refs.regist.getValues();
+
+        console.log(data);
+        
+        if(data.pass){
+            t.handleDialogVisible(false);    
+        }
+
+        
     }
     handleDialogVisible(visible){
         let t = this;
+        if(!visible){
+            t.refs.regist.resetValues();
+        }
         t.setState({
             visible:visible
         });
@@ -69,7 +81,7 @@ class Login extends React.Component {
                                 inputType='password'
                                 jsxrules={[{validator: Validators.isNotEmpty, errMsg: "不能为空"}]}/>
                             <ButtonGroupFormField>
-                                <Button size="large" onClick={t.handleSubmit.bind(t)}>登录</Button>
+                                <Button size="large" onClick={t.handleLogin.bind(t)}>登录</Button>
                             </ButtonGroupFormField>
                     </Form>
 
@@ -77,7 +89,7 @@ class Login extends React.Component {
                         <div className='right'>
                             <a>忘了密码</a>
                             <div className='line'>|</div>
-                            <a>注册账号</a>
+                            <a onClick={t.handleDialogVisible.bind(t,true)}>注册账号</a>
                         </div>
                     </div>
                 </div>
@@ -88,32 +100,58 @@ class Login extends React.Component {
     }
     renderRegister(){
         let t = this;
-        return <Dialog title="注册,很快就好"
+        return <Dialog title="注册一下,很快就好"
                     visible={t.state.visible}
                     footer = {[
                           <Button key="submit" onClick={this.handleRegist.bind(this)}>注 册</Button>,
                           <Button key="back" onClick={this.handleDialogVisible.bind(this,false)}>返 回</Button>
                     ]}>
 
-                    <Form ref='form' width='360px'  className='form'>
+                    <Form ref='regist' width='360px'  className='form'>
                             <OtherFormField>
                                 <div className='dialig-tip'>
                                     用户名千万要记牢，丢了就找不回来了
                                 </div>
                             </OtherFormField>
-                            <Input jsxname='theme' jsxlabel='用户名：'   jsxplaceholder='中文、英文、数字、特殊字符什么的都 OK 了'  instantValidate={true}
+                            <Input 
+                                jsxname='theme' 
+                                jsxlabel='用户名：'   
+                                jsxplaceholder='中文、英文、数字、特殊字符什么的都 OK 了'  
                                 jsxrules={[ {validator: Validators.isNotEmpty, errMsg: "不能为空"},
                                             {validator:(val)=>{
                                                 return util.maxlength(val,20);
                                             },errMsg:'太长了吧？'}]}/>
                        
-                            <Input jsxname='location'  jsxplaceholder='只输入一个空格也是 OK 的' jsxlabel='密码：'
+                            <Input 
+                                jsxname='location'  
+                                jsxplaceholder='只输入一个空格也是 OK 的' 
+                                jsxlabel='密码：'
+                                inputType='password'
                                 jsxrules={[ {validator: Validators.isNotEmpty, errMsg: "不能为空"},
                                             {validator:(val)=>{
                                                 return util.maxlength(val,20);
                                             },errMsg:'太长了吧？'}]}/>
 
-
+                            <OtherFormField>
+                                <div className='dialig-tip'>
+                                    安全问题是找回密码的唯一方式，请您牢记
+                                </div>
+                            </OtherFormField>
+                            <SelectFormField
+                                jsxname='question'
+                                jsxlabel='安全问题：'
+                                jsxdata={data.question}
+                                filterOption={false}
+                                jsxrules={[{validator: Validators.isNotEmpty, errMsg: "不能为空"}]}/>
+                            
+                            <Input 
+                                jsxname='answer' 
+                                jsxlabel='问题答案：'   
+                                jsxplaceholder='随便你写什么'  
+                                jsxrules={[ {validator: Validators.isNotEmpty, errMsg: "不能为空"},
+                                            {validator:(val)=>{
+                                                return util.maxlength(val,20);
+                                            },errMsg:'太长了吧？'}]}/>
                             
                     </Form>
                     
